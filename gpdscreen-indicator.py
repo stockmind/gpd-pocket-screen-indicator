@@ -55,7 +55,7 @@ def landscape(source):
     gpdtouch landscape
 
 def portrait(source):
-    gpdtouch potrait
+    gpdtouch portrait
 
 def dispaysize(source):
     gpdtouch displaysize
