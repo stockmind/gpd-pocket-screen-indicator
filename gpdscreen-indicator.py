@@ -84,9 +84,7 @@ def displaysize(source):
     call(["gpdtouch", "displaysize"])
 
 def resettouch(source):
-    call(("gksudo -- modprobe -r goodix"), shell=True)
-    time.sleep(5) 
-    call(("gksudo -- modprobe goodix"), shell=True)
+    call(("gksudo -- bash -c 'modprobe -r goodix; sleep 3; modprobe goodix'"), shell=True)
 
 def get_resource_path(rel_path):
     dir_of_py_file = os.path.dirname(__file__)
