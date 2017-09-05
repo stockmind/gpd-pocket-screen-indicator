@@ -11,6 +11,7 @@
 
 import os
 import signal
+from subprocess import call
 from gi.repository import Gtk as gtk
 from gi.repository import AppIndicator3 as appindicator
 
@@ -36,11 +37,11 @@ def build_menu():
     menu.append(item_portrait)
 
     # Restore display size
-    item_portrait = gtk.MenuItem('Restore display size')
-    item_portrait.connect('activate', displaysize)
-    menu.append(item_portrait)
+    item_displaysize = gtk.MenuItem('Restore display size')
+    item_displaysize.connect('activate', displaysize)
+    menu.append(item_displaysize)
 
-    # Quit 
+    # Quit
     item_quit = gtk.MenuItem('Quit')
     item_quit.connect('activate', quit)
     menu.append(item_quit)
@@ -52,13 +53,13 @@ def quit(source):
     gtk.main_quit()
 
 def landscape(source):
-    gpdtouch landscape
+    call(["gpdtouch", "landscape"])
 
 def portrait(source):
-    gpdtouch portrait
+    call(["gpdtouch", "portrait"])
 
-def dispaysize(source):
-    gpdtouch displaysize
+def displaysize(source):
+    call(["gpdtouch", "displaysize"])
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal.SIG_DFL)
