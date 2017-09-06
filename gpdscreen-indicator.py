@@ -36,7 +36,7 @@ def main():
     if is_unity:
         indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('icons/screen-rotation-button-white.svg'), appindicator.IndicatorCategory.SYSTEM_SERVICES)
         indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
-        menu = buid_menu()
+        menu = build_menu()
         indicator.set_menu(menu)
         gtk.main()
     if not is_unity:
