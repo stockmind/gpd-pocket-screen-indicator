@@ -14,11 +14,11 @@ import time
 import signal
 from subprocess import call
 
-bool is_unity;
+desktop = os.getenv("XDG_CURRENT_DESKTOP")                                     
+is_unity = (desktop.lower() == "unity")    
+is_kde = (desktop.lower() == "kde")    
 
-desktop = getenv("XDG_CURRENT_DESKTOP");                                     
-is_unity = (desktop.toLower() == "unity");    
-is_kde = (desktop.toLower() == "kde");    
+print desktop
 
 if is_unity:
     import gi
@@ -27,7 +27,7 @@ if is_unity:
     from gi.repository import Gtk as gtk
     from gi.repository import AppIndicator3 as appindicator
     
-if !is_unity:
+if not is_unity:
     from PyQt4 import QtGui
 
 APPINDICATOR_ID = 'GPDScreenManager'
@@ -39,13 +39,13 @@ def main():
         menu = buid_menu()
         indicator.set_menu(menu)
         gtk.main()
-    if !is_unity:
+    if not is_unity:
         indicator = QtGui.QApplication([])
         icon = QtGui.QSystemTrayIcon(QtGui.QIcon(get_resource_path('icons/screen-rotation-button-white.svg')), indicator)
         menu = build_menu()
         icon.setContextMenu(menu)
         icon.show()
-        app.exec_()
+        indicator.exec_()
 
 def build_menu():
     if is_unity:
@@ -90,7 +90,7 @@ def build_menu():
     
         menu.show_all()
         
-    if !is_unity:
+    if not is_unity:
         menu = QtGui.QMenu()
         
         menu.addAction("Quit", QtGui.qApp.quit)
