@@ -15,8 +15,8 @@ import signal
 from subprocess import call
 
 desktop = os.getenv("XDG_CURRENT_DESKTOP")                                     
-is_unity = (desktop.lower() == "unity")    
-is_kde = (desktop.lower() == "kde")    
+is_unity = ("unity" in desktop.lower())    
+is_kde = ("kde" in desktop.lower())    
 
 print desktop
 
@@ -93,23 +93,31 @@ def build_menu():
     if not is_unity:
         menu = QtGui.QMenu()
         
+        menu.addAction("Rotate landscape", landscape)
+        menu.addAction("Rotate portrait", portrait)
+        menu.addAction("Reset touchscreen", resettouch)
+        menu.addAction("Normal DPI", resettouch)
+        menu.addAction("High DPI", highdpi)
         menu.addAction("Quit", QtGui.qApp.quit)
 
     return menu
 
-def quit(source):
+def quit(*source):
     gtk.main_quit()
 
-def landscape(source):
+def landscape(*source):
     call(["gpdtouch", "landscape"])
 
-def portrait(source):
+def portrait(*source):
     call(["gpdtouch", "portrait"])
 
-def displaysize(source):
+def displaysize(*source):
     call(["gpdtouch", "displaysize"])
 
-def resettouch(source):
+def resettouch(*source):
+    call(("gksudo -- bash -c 'sudo modprobe -r goodix; sleep 3; sudo modprobe goodix'"), shell=True)
+
+def highdpi(*source):
     call(("gksudo -- bash -c 'modprobe -r goodix; sleep 3; modprobe goodix'"), shell=True)
 
 def get_resource_path(rel_path):
