@@ -83,6 +83,16 @@ def build_menu():
         item_resettouch.connect('activate', resettouch)
         menu.append(item_resettouch)
     
+        # Normal DPI
+        item_normaldpi = gtk.ImageMenuItem('Normal DPI')
+        item_normaldpi.connect('activate', normaldpi)
+        menu.append(item_normaldpi)
+    
+        # Quit
+        item_highdpi = gtk.ImageMenuItem('High DPI')
+        item_highdpi.connect('activate', highdpi)
+        menu.append(item_highdpi)
+    
         # Quit
         item_quit = gtk.ImageMenuItem('Quit')
         item_quit.connect('activate', quit)
@@ -96,7 +106,7 @@ def build_menu():
         menu.addAction("Rotate landscape", landscape)
         menu.addAction("Rotate portrait", portrait)
         menu.addAction("Reset touchscreen", resettouch)
-        menu.addAction("Normal DPI", resettouch)
+        menu.addAction("Normal DPI", normaldpi)
         menu.addAction("High DPI", highdpi)
         menu.addAction("Quit", QtGui.qApp.quit)
 
@@ -115,10 +125,13 @@ def displaysize(*source):
     call(["gpdtouch", "displaysize"])
 
 def resettouch(*source):
-    call(("gksudo -- bash -c 'sudo modprobe -r goodix; sleep 3; sudo modprobe goodix'"), shell=True)
+    call(("gksudo -- gpdtouch touchreset"), shell=True)
 
 def highdpi(*source):
-    call(("gksudo -- bash -c 'modprobe -r goodix; sleep 3; modprobe goodix'"), shell=True)
+    call(["gpdtouch", "highdpi"])
+
+def normaldpi(*source):
+    call(["gpdtouch", "normaldpi"])
 
 def get_resource_path(rel_path):
     dir_of_py_file = os.path.dirname(__file__)
