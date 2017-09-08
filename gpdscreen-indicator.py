@@ -31,6 +31,7 @@ if not is_unity:
     from PyQt4 import QtGui
 
 APPINDICATOR_ID = 'GPDScreenManager'
+icon=''
 
 def main():
     if is_unity:
@@ -40,12 +41,19 @@ def main():
         indicator.set_menu(menu)
         gtk.main()
     if not is_unity:
+        global icon
         indicator = QtGui.QApplication([])
         icon = QtGui.QSystemTrayIcon(QtGui.QIcon(get_resource_path('icons/screen-rotation-button-white.svg')), indicator)
         menu = build_menu()
         icon.setContextMenu(menu)
         icon.show()
+        icon.activated.connect(left_click_menu)
         indicator.exec_()
+
+def left_click_menu(reason):
+    if reason == QtGui.QSystemTrayIcon.Trigger:
+        icon.contextMenu().exec_(QtGui.QCursor.pos())
+
 
 def build_menu():
     if is_unity:
