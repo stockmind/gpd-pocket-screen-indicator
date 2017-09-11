@@ -1,0 +1,10 @@
+[Unit]
+Description=GPD Screen Indicator Service
+After=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/gpdscreen-indicator &
+
+[Install]
+WantedBy=multi-user.target
