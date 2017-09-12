@@ -35,7 +35,7 @@ icon=''
 
 def main():
     if is_unity:
-        indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('icons/screen-rotation-button-white.svg'), appindicator.IndicatorCategory.SYSTEM_SERVICES)
+        indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('/usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-white.svg'), appindicator.IndicatorCategory.SYSTEM_SERVICES)
         indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
         menu = build_menu()
         indicator.set_menu(menu)
@@ -43,7 +43,7 @@ def main():
     if not is_unity:
         global icon
         indicator = QtGui.QApplication([])
-        icon = QtGui.QSystemTrayIcon(QtGui.QIcon(get_resource_path('icons/screen-rotation-button-white.svg')), indicator)
+        icon = QtGui.QSystemTrayIcon(QtGui.QIcon(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-white.svg')), indicator)
         menu = build_menu()
         icon.setContextMenu(menu)
         icon.show()
@@ -62,7 +62,7 @@ def build_menu():
         # Rotate landscape
         item_landscape = gtk.ImageMenuItem('Rotate landscape')
         item_icon = gtk.Image()
-        item_icon.set_from_file(get_resource_path('icons/tablet-with-blank-screen-white.svg'))
+        item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/tablet-with-blank-screen-white.svg'))
         item_landscape.set_image(item_icon)
         item_landscape.set_always_show_image(True)
         item_landscape.connect('activate', landscape)
@@ -71,7 +71,7 @@ def build_menu():
         # Rotate portrait
         item_portrait = gtk.ImageMenuItem('Rotate portrait')
         item_icon = gtk.Image()
-        item_icon.set_from_file(get_resource_path('icons/cell-phone-with-blank-screen-white.svg'))
+        item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/cell-phone-with-blank-screen-white.svg'))
         item_portrait.set_image(item_icon)
         item_portrait.set_always_show_image(True)
         item_portrait.connect('activate', portrait)
@@ -85,7 +85,7 @@ def build_menu():
         # Restore display size
         item_resettouch = gtk.ImageMenuItem('Reset touchscreen')
         item_icon = gtk.Image()
-        item_icon.set_from_file(get_resource_path('icons/synchronization-arrows-white.svg'))
+        item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/synchronization-arrows-white.svg'))
         item_resettouch.set_image(item_icon)
         item_resettouch.set_always_show_image(True)
         item_resettouch.connect('activate', resettouch)
@@ -142,10 +142,11 @@ def normaldpi(*source):
     call(["gpdtouch", "normaldpi"])
 
 def get_resource_path(rel_path):
-    dir_of_py_file = os.path.dirname(__file__)
-    rel_path_to_resource = os.path.join(dir_of_py_file, rel_path)
-    abs_path_to_resource = os.path.abspath(rel_path_to_resource)
-    return abs_path_to_resource    
+    #dir_of_py_file = os.path.dirname(__file__)
+    #rel_path_to_resource = os.path.join(dir_of_py_file, rel_path)
+    #abs_path_to_resource = os.path.abspath(rel_path_to_resource)
+    #return abs_path_to_resource    
+    return rel_path
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal.SIG_DFL)
