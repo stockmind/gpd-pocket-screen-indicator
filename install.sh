@@ -3,11 +3,9 @@
 cp gpdscreen-indicator.py /usr/local/sbin/gpdscreen-indicator
 chmod +x /usr/local/sbin/gpdscreen-indicator
 
-cp gpdscreen-indicator.service /etc/systemd/system/gpdscreen-indicator.service
+cp 99-gpdscreen-indicator /etc/X11/Xsession.d/99-gpdscreen-indicator
 
-chmod 0644 /etc/systemd/system/gpdscreen-indicator.service
-
-systemctl enable gpdscreen-indicator.service
+chmod +x /etc/X11/Xsession.d/99-gpdscreen-indicator
 
 mkdir -p /usr/local/share/gpdscreen-indicator/icons
 cp icons/* /usr/local/share/gpdscreen-indicator/icons/
