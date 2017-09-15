@@ -8,4 +8,4 @@ cp 99-gpdscreen-indicator /etc/X11/Xsession.d/99-gpdscreen-indicator
 chmod +x /etc/X11/Xsession.d/99-gpdscreen-indicator
 
 mkdir -p /usr/local/share/gpdscreen-indicator/icons
-cp icons/* /usr/local/share/gpdscreen-indicator/icons/
+cp icons/*.png /usr/local/share/gpdscreen-indicator/icons/
