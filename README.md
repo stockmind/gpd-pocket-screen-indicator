@@ -33,7 +33,9 @@ Gnome users must install an extension for Gnome Shell (Choose one):
 
 This extensions will enable legacy tray icons on top bar.
 
-## Clone repository and run as root
+## Install
+
+Clone repository and run as root
 
     sudo ./install.sh
 
