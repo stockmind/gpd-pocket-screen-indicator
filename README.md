@@ -1,3 +1,5 @@
+![GPD Pocket Screen rotation utility]()
+
 # GPD Pocket screen rotation utility
 
 With this utility and traybar indicator you can easily manage screen and touch rotation of your device.
