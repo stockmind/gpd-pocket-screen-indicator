@@ -21,7 +21,7 @@ chmod 644 /etc/X11/Xsession.d/99-gpdscreen-indicator
 
 # Add rotate script for GDM login script
 mkdir -p /etc/X11/xinit/xinitrc.d/
-cp 90-gpdscreen /etc/X11/xinit/xinitrc.d/90-gpdscreen
+cp xsession/90-gpdscreen /etc/X11/xinit/xinitrc.d/90-gpdscreen
 chmod 644 /etc/X11/xinit/xinitrc.d/90-gpdscreen
 
 # Add touchscreen rotation daemon for login screens and wayland
@@ -29,12 +29,12 @@ cp daemons/gpdscreen.sh /usr/local/sbin/gpdscreen
 chmod +x /usr/local/sbin/gpdscreen
 
 # Add script relaunch on wake
-cp gpdscreen /lib/systemd/system-sleep/gpdscreen
+cp daemons/gpdscreen /lib/systemd/system-sleep/gpdscreen
 chmod +x /lib/systemd/system-sleep/gpdscreen
 
 # Add service to handle rotation on boot and on sleep/wake
-cp gpdscreen.service /etc/systemd/system/gpdscreen.service
-cp gpdscreen-wake.service /etc/systemd/system/gpdscreen-wake.service
+cp daemons/gpdscreen.service /etc/systemd/system/gpdscreen.service
+cp daemons/gpdscreen-wake.service /etc/systemd/system/gpdscreen-wake.service
 chmod 0644 /etc/systemd/system/gpdscreen.service
 chmod 0644 /etc/systemd/system/gpdscreen-wake.service
 
@@ -49,7 +49,7 @@ systemctl start gpdscreen.service
 cp gpdscreen-indicator.py /usr/local/sbin/gpdscreen-indicator
 chmod +x /usr/local/sbin/gpdscreen-indicator
 
-cp 99-gpdscreen-indicator /etc/X11/Xsession.d/99-gpdscreen-indicator
+cp xsession/99-gpdscreen-indicator /etc/X11/Xsession.d/99-gpdscreen-indicator
 
 chmod +x /etc/X11/Xsession.d/99-gpdscreen-indicator
 
