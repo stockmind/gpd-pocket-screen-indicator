@@ -1,0 +1,10 @@
+[Unit]
+Description=GPD Touchscreen Rotation Service on Wake
+After=suspend.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/gpdscreen service wake &
+
+[Install]
+WantedBy=suspend.target

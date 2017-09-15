@@ -87,22 +87,22 @@ def quit(*source):
     gtk.main_quit()
 
 def landscape(*source):
-    call(["gpdtouch", "landscape"])
+    call(["gpdscreen", "landscape"])
 
 def portrait(*source):
-    call(["gpdtouch", "portrait"])
+    call(["gpdscreen", "portrait"])
 
 def displaysize(*source):
-    call(["gpdtouch", "displaysize"])
+    call(["gpdscreen", "displaysize"])
 
 def resettouch(*source):
-    call(("gksudo -- gpdtouch touchreset"), shell=True)
+    call(("gksudo -- gpdscreen touchreset"), shell=True)
 
 def highdpi(*source):
-    call(["gpdtouch", "highdpi"])
+    call(["gpdscreen", "highdpi"])
 
 def normaldpi(*source):
-    call(["gpdtouch", "normaldpi"])
+    call(["gpdscreen", "normaldpi"])
 
 def get_resource_path(rel_path):
     #dir_of_py_file = os.path.dirname(__file__)
