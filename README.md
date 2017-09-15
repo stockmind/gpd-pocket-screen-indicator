@@ -1,4 +1,4 @@
-![GPD Pocket Screen rotation utility]()
+![GPD Pocket Screen rotation utility](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/master/screenshot.png)
 
 # GPD Pocket screen rotation utility
 
