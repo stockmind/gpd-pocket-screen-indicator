@@ -24,6 +24,14 @@ I'm experimenting other features that may be added soon.
  	- python2-gobject
  	- gksu
 
+ ## GNOME-Shell Users
+
+ 	Gnome users must install an extension for Gnome Shell (Choose one):
+
+ 		- https://extensions.gnome.org/extension/1031/topicons/
+ 		- https://extensions.gnome.org/extension/495/topicons/
+
+ 	This extensions will enable legacy tray icons on top bar.
 
 ## Clone repository and run as root
 
