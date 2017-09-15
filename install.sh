@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Clean previous version of script
-rm -f /etc/X11/Xsession.d/90-gpdtouch
-rm -f /etc/X11/xinit/xinitrc.d/90-gpdtouch
+rm -f /etc/X11/Xsession.d/90-touch
+rm -f /etc/X11/xinit/xinitrc.d/90-touch
 systemctl stop gpdtouch.service
 systemctl stop gpdtouch-wake.service
 systemctl disable gpdtouch.service
