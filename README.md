@@ -7,7 +7,24 @@ I'm experimenting other features that may be added soon.
 
 # Install
 
-Clone repository and run as root
+## Required dependencies
+
+ ### Debian, Ubuntu, etc...:
+
+	 - python
+	 - python-gi
+	 - gksu
+	 - gir1.2-appindicator3-0.1
+
+ ### Arch:
+
+ 	- gobject-introspection
+ 	- python2
+ 	- python2-gobject
+ 	- gksu
+
+
+## Clone repository and run as root
 
     sudo ./install.sh
 
