@@ -1,6 +1,6 @@
 ![GPD Pocket Screen rotation utility](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/master/screenshot.png)
 
-# GPD Pocket screen rotation utility
+# GPD Pocket screen rotation utility (Linux only)
 
 With this utility and traybar indicator you can easily manage screen and touch rotation of your device.
 
