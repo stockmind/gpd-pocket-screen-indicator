@@ -24,7 +24,7 @@ I'm experimenting other features that may be added soon.
 - python2-gobject
 - gksu
 
-## GNOME-Shell Users
+## GNOME-Shell Users
 
 Gnome users must install an extension for Gnome Shell (Choose one):
 
