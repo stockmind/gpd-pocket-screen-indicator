@@ -12,6 +12,9 @@ I'm experimenting other features that may be added soon.
 
 **This packages is not compatible with Ansible-playbook setup due to rotation scripts that may conflict. Clean your system before use this.**
 
+This is an indipendent module of this main project: https://github.com/stockmind/gpd-pocket-ubuntu-respin
+It can work without that setup but is *recommended* to run into an environment configured with those project files.
+
 # Install
 
 ## Required dependencies
