@@ -69,8 +69,8 @@ if [[ "$RESETTOUCH" = true ]]; then
 	exit 0
 fi
 
-# try at least 2 times to set correct transformation matrix
-for k in `seq 1 2`;
+# try at least 3 times to set correct transformation matrix
+for k in `seq 1 3`;
 do 
 
 	# If i'm calling script from a service i must look for required variables
