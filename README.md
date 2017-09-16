@@ -59,6 +59,10 @@ This will also remove old versions of my gpdtouch scripts.
 
 # Troubleshooting
 
+## No icon on GNOME Shell
+
+[Check this](#gnome-shell-users)
+
 ## Touchscreen or display rotation is wrong after wake/sleep or screen lock
 
 Sometimes it may happen that rotation of touch or display is wrong due to several factor, particularly on GNOME or derived Desktop Environments. You can fix this simply selecting with mouse the GPD Screen Rotation icon on the tray bar ( ![GPD Screen Rotation icon](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/b26ef297ab46e1cb0c6534ff66571d60e10b25ad/icons/screen-rotation-button-black.png) ) and clicking on the desired rotation on menu.
