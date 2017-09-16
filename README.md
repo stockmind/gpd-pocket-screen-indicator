@@ -73,7 +73,7 @@ You can try to use the "Reset touchscreen" option from the GPD Screen Rotation i
 
 # Credits
 
-Base rotation script and daemons is based on initial bash work of chrisawcom 
+Base rotation script and daemons are based on initial bash work of chrisawcom 
 
 Contributions by beeftornado, maxengel
 
