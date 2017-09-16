@@ -59,7 +59,7 @@ This will also remove old versions of my gpdtouch scripts.
 
 # Troubleshooting
 
-## No icon on GNOME Shell
+## No icon on GNOME Shell
 
 [Check this](#gnome-shell-users)
 
