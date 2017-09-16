@@ -3,7 +3,7 @@
 #
 # __author__ = "Simone Roberto Nunzi aka Stockmind"
 # __copyright__ = "Copyright 2017"
-# __credits__ = ["Timur Rubeko"]
+# __credits__ = ["Timur Rubeko for initial daemon setup"]
 # __license__ = "GPL"
 # __version__ = "3.0"
 # Icon used: https://www.flaticon.com/free-icon/screen-rotation-button_61030
