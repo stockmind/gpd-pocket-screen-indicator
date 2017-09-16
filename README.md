@@ -10,6 +10,8 @@ You can also switch from High DPI to Normal DPI mode to work easily on attached 
 
 I'm experimenting other features that may be added soon.
 
+**This packages is not compatible with Ansible-playbook setup due to rotation scripts that may conflict. Clean your system before use this.**
+
 # Install
 
 ## Required dependencies
