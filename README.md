@@ -57,6 +57,11 @@ Clone repository and run as root
 
 This will also remove old versions of my gpdtouch scripts. 
 
+# Have an issue?
+
+Check [Troubleshooting section.](#troubleshooting)
+If your problem persist or is not on the list check [Problem reporting section](#problem-reporting) before open an issue.
+
 # Troubleshooting
 
 ## No icon on GNOME Shell
@@ -74,6 +79,14 @@ The script will do it's best to compensate the alignment problems that may happe
 ## Touchscreen stop to respond
 
 You can try to use the "Reset touchscreen" option from the GPD Screen Rotation icon on your tray bar ( ![GPD Screen Rotation icon](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/b26ef297ab46e1cb0c6534ff66571d60e10b25ad/icons/screen-rotation-button-black.png) ). It will ask for your password. Wait for 5 seconds than retry to use touchscreen. If problem persist try to put system in sleep for a bit or reboot your device.
+
+# Problem reporting
+
+To report a problem clone the repo, run "problem-reporting.sh" script and attach the output to your github issue. This will help debugging.
+
+```
+sudo ./problem-reporting.sh
+```
 
 # Credits
 
