@@ -51,6 +51,7 @@ Clone repository and run as root
     sudo ./install.sh
 
 This will install gpdscreen rotation scripts, daemons and icons.
+This will also remove old versions of my gpdtouch scripts.
 
 Reboot after install is required.
 
