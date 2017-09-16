@@ -4,7 +4,9 @@
 
 With this utility and traybar indicator you can easily manage screen and touch rotation of your device.
 
-You can also switch from High DPI to Normal DPI mode to work easily on attached monitors at native DPI on Xorg.
+This package will install daemons that will run on boot and will manage the screen rotation.
+
+You can also switch from High DPI to Normal DPI mode to work easily on attached monitors with native DPI on Xorg.
 
 I'm experimenting other features that may be added soon.
 
