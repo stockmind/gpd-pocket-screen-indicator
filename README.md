@@ -57,6 +57,20 @@ Clone repository and run as root
 
 This will also remove old versions of my gpdtouch scripts. 
 
+# Troubleshooting
+
+## Touchscreen or display rotation is wrong after wake/sleep or screen lock
+
+Sometimes it may happen that rotation of touch or display is wrong due to several factor, particularly on GNOME or derived Desktop Environments. You can fix this simply selecting with mouse the GPD Screen Rotation icon on the tray bar ( ![GPD Screen Rotation icon](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/b26ef297ab46e1cb0c6534ff66571d60e10b25ad/icons/screen-rotation-button-black.png) ) and clicking on the desired rotation on menu.
+
+Ex.
+If your display is rotated in landscape correctly but touchscreen is not aligned, you can select "Rotate landscape" to fix this. The opposite is also valid.
+The script will do it's best to compensate the alignment problems that may happen.
+
+## Touchscreen stop to respond
+
+You can try to use the "Reset touchscreen" option from the GPD Screen Rotation icon on your tray bar ( ![GPD Screen Rotation icon](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/b26ef297ab46e1cb0c6534ff66571d60e10b25ad/icons/screen-rotation-button-black.png) ). It will ask for your password. Wait for 5 seconds than retry to use touchscreen. If problem persist try to put system in sleep for a bit or reboot your device.
+
 # Credits
 
 Base rotation script and daemons is based on initial bash work of chrisawcom 
