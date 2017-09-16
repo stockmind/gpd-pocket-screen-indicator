@@ -10,9 +10,10 @@ You can also switch from High DPI to Normal DPI mode to work easily on attached 
 
 I'm experimenting other features that may be added soon.
 
-**This packages is not compatible with Ansible-playbook setup due to rotation scripts that may conflict. Clean your system before use this.**
+**This packages is not compatible with Ansible-playbook setup due to rotation scripts that may conflict. Clean your system before use this.
+You may try this clean script at your own risk: [Clean Ansible Playbook script](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/clean-ansible.sh)**
 
-This is an indipendent module of this main project: https://github.com/stockmind/gpd-pocket-ubuntu-respin
+This is an indipendent module of another project: https://github.com/stockmind/gpd-pocket-ubuntu-respin
 
 It can work without that setup but is *recommended* to run into an environment configured with those project files for a better user experience.
 
