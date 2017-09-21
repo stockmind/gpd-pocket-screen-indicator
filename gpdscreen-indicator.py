@@ -102,7 +102,7 @@ def portrait(*source):
     call(["gpdscreen", "portrait"])
     
 def invertedportrait(*source):
-    call(["gpdscreen", "inivertedportrait"])    
+    call(["gpdscreen", "invertedportrait"])    
 
 def displaysize(*source):
     call(["gpdscreen", "displaysize"])
