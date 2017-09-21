@@ -78,6 +78,9 @@ fi
 # try at least 3 times to set correct transformation matrix
 for k in `seq 1 3`;
 do 
+	# Reset on every attempt two values to check if touch and display are ok at the same time
+        DISPLAYOK=false
+	TOUCHOK=false
 
 	# If i'm calling script from a service i must look for required variables
 	if [ "$SERVICE" = true ] ; then
@@ -112,6 +115,9 @@ do
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 			#echo "Done. Current matrix: $currentmatrix"
+		else
+			echo "Touch already rotated."
+			TOUCHOK=true
 		fi
 	elif [[ "$INVERTEDPORTRAIT" = true ]]; then
 		if [ "$currentmatrix" != "-1.000000, 0.000000, 1.000000, 0.000000, -1.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
@@ -122,6 +128,9 @@ do
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 			#echo "Done. Current matrix: $currentmatrix"
+		else
+			echo "Touch already rotated."
+			TOUCHOK=true
 		fi
 	else
 		if [ "$currentmatrix" != "0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
@@ -131,6 +140,9 @@ do
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 			#echo "Done. Current matrix: $currentmatrix"
+		else
+			echo "Touch already rotated."
+			TOUCHOK=true
 		fi
 	fi
 
@@ -163,6 +175,9 @@ do
 		if [ "$currentorientation" != "normal" ]; then
 			# try also to rotate display if monitors file gets ignored
 			xrandr --output DSI1 --rotate normal
+		else
+			echo "Display already rotated."
+			DISPLAYOK=true
 		fi
 	elif [[ "$INVERTEDPORTRAIT" = true ]]; then
 		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-45))
@@ -170,6 +185,9 @@ do
 		if [ "$currentorientation" != "inverted" ]; then
 			# try also to rotate display if monitors file gets ignored
 			xrandr --output DSI1 --rotate inverted
+		else
+			echo "Display already rotated."
+			DISPLAYOK=true	
 		fi
 	else
 		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
@@ -178,7 +196,16 @@ do
 		if [ "$currentorientation" != "right" ]; then
 			# try also to rotate display if monitors file gets ignored
 			xrandr --output DSI1 --rotate right
+		else
+			echo "Display already rotated."
+			DISPLAYOK=true
 		fi
+	fi
+	
+	if [[ "$TOUCHOK" = true && "$DISPLAYOK" = true ]]; then
+		# We are done
+		echo "Display and touch correctly rotated! Exit."
+		exit 0;
 	fi
 	
 	sleep 3	
