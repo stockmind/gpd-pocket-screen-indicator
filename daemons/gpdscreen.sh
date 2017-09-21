@@ -165,6 +165,13 @@ do
 			# try also to rotate display if monitors file gets ignored
 			xrandr --output DSI1 --rotate right
 		fi
+	elif [[ "$INVERTEDPORTRAIT" = true ]]; then
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-45))
+		echo $currentorientation
+		if [ "$currentorientation" != "inverted" ]; then
+			# try also to rotate display if monitors file gets ignored
+			xrandr --output DSI1 --rotate inverted
+		fi
 	else
 		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b39-45))
 		echo $currentorientation
