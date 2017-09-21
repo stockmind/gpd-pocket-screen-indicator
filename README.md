@@ -88,6 +88,14 @@ The script will do it's best to compensate the alignment problems that may happe
 
 You can try to use the "Reset touchscreen" option from the GPD Screen Rotation icon on your tray bar ( ![GPD Screen Rotation icon](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/b26ef297ab46e1cb0c6534ff66571d60e10b25ad/icons/screen-rotation-button-black.png) ). It will ask for your password. Wait for 5 seconds then retry to use touchscreen. If problem persist try to put system in sleep for a bit or reboot your device.
 
+## No GPD Screen Rotation icon shows at boot
+
+In some system it may happen that tray icon won't show at boot. Try to run in a terminal
+
+    gpdscreen-indicator
+    
+If it works add "gpdscreen-indicator" command to your system "Startup Application" utility to run it at boot.
+
 # Problem reporting
 
 To report a problem clone the repo, run "problem-reporting.sh" script and attach the output to your github issue. This will help debugging.
