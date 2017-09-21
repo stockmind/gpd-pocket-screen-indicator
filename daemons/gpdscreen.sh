@@ -6,6 +6,7 @@
 SERVICE=false
 WAKE=false
 PORTRAIT=false
+INVERTEDPORTRAIT=false
 HIGHDPI=false
 NORMALDPI=false
 TOUCHRESET=false
@@ -25,6 +26,11 @@ for i in "$@" ; do
     if [[ $i == "portrait" ]] ; then
         echo "Script called for portrait rotation"
         PORTRAIT=true
+        continue
+    fi
+    if [[ $i == "invertedportrait" ]] ; then
+        echo "Script called for inverted portrait rotation"
+        INVERTEDPORTRAIT=true
         continue
     fi
     if [[ $i == "highdpi" ]] ; then
@@ -98,9 +104,19 @@ do
 	#echo "Current matrix: $currentmatrix"
 	
 	if [[ "$PORTRAIT" = true ]]; then
-    	if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
+    		if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
 			# Fix the transformation matrix		
 			xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+			#xinput set-prop $id "libinput Calibration Matrix" 1 0 0 0 1 0 0 0 1
+			#xinput set-prop $id "libinput Calibration Matrix Default" 0 1 0 -1 0 1 0 0 1
+
+			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
+			#echo "Done. Current matrix: $currentmatrix"
+		fi
+	elif [[ "$INVERTEDPORTRAIT" = true ]]; then
+		if [ "$currentmatrix" != "-1.000000, 0.000000, 1.000000, 0.000000, -1.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
+			# Fix the transformation matrix		
+			xinput set-prop $id "Coordinate Transformation Matrix" -1 0 1 0 -1 1 0 0 1
 			#xinput set-prop $id "libinput Calibration Matrix" 1 0 0 0 1 0 0 0 1
 			#xinput set-prop $id "libinput Calibration Matrix Default" 0 1 0 -1 0 1 0 0 1
 
