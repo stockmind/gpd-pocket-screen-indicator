@@ -157,13 +157,12 @@ do
 	fi
 
 	
-	if [[ "$PORTRAIT" = false ]]; then
-		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
+	if [[ "$PORTRAIT" = true ]]; then
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b39-45))
 		echo $currentorientation
-	
-		if [ "$currentorientation" != "right" ]; then
+		if [ "$currentorientation" != "normal" ]; then
 			# try also to rotate display if monitors file gets ignored
-			xrandr --output DSI1 --rotate right
+			xrandr --output DSI1 --rotate normal
 		fi
 	elif [[ "$INVERTEDPORTRAIT" = true ]]; then
 		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-45))
@@ -173,11 +172,12 @@ do
 			xrandr --output DSI1 --rotate inverted
 		fi
 	else
-		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b39-45))
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
 		echo $currentorientation
-		if [ "$currentorientation" != "normal" ]; then
+	
+		if [ "$currentorientation" != "right" ]; then
 			# try also to rotate display if monitors file gets ignored
-			xrandr --output DSI1 --rotate normal
+			xrandr --output DSI1 --rotate right
 		fi
 	fi
 	
