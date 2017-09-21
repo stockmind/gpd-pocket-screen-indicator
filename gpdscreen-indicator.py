@@ -49,6 +49,15 @@ def build_menu():
     item_portrait.set_always_show_image(True)
     item_portrait.connect('activate', portrait)
     menu.append(item_portrait)
+    
+    # Rotate inverted portrait
+    item_portrait = gtk.ImageMenuItem('Rotate inverse portrait')
+    item_icon = gtk.Image()
+    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/cell-phone-with-blank-screen-white.png'))
+    item_portrait.set_image(item_icon)
+    item_portrait.set_always_show_image(True)
+    item_portrait.connect('activate', invertedportrait)
+    menu.append(item_portrait)    
 
     # Restore display size
     #item_displaysize = gtk.MenuItem('Restore display size')
@@ -91,6 +100,9 @@ def landscape(*source):
 
 def portrait(*source):
     call(["gpdscreen", "portrait"])
+    
+def invertedportrait(*source):
+    call(["gpdscreen", "inivertedportrait"])    
 
 def displaysize(*source):
     call(["gpdscreen", "displaysize"])
