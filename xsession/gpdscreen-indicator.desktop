@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=GPD Pocket Screen Management Indicator
+Comment=An indicator for managing rotation and settings of GPD Pocket display
+Exec=gpdscreen-indicator
+Type=Application
