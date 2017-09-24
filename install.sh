@@ -11,13 +11,17 @@ rm -f /etc/systemd/system/gpdtouch.service
 rm -f /etc/systemd/system/gpdtouch-wake.service
 rm -f /usr/local/sbin/gpdtouch
 rm -f /lib/systemd/system-sleep/gpdtouch
+rm -f /etc/X11/Xsession.d/99-gpdscreen-indicator
+
 
 # Copy xsession scripts for utility launch
 cp xsession/90-gpdscreen /etc/X11/Xsession.d/90-gpdscreen
-cp xsession/99-gpdscreen-indicator /etc/X11/Xsession.d/99-gpdscreen-indicator
+#cp xsession/99-gpdscreen-indicator /etc/X11/Xsession.d/99-gpdscreen-indicator
+cp xsession/gpdscreen-indicator.desktop /etc/xdg/autostart/gpdscreen-indicator.desktop
 
 chmod 0644 /etc/X11/Xsession.d/90-gpdscreen
-chmod 0644 /etc/X11/Xsession.d/99-gpdscreen-indicator
+#chmod 0644 /etc/X11/Xsession.d/99-gpdscreen-indicator
+chmod 0644 /etc/xdg/autostart/gpdscreen-indicator.desktop
 
 # Add rotate script for GDM login script
 mkdir -p /etc/X11/xinit/xinitrc.d/
