@@ -17,6 +17,8 @@ rm -f /etc/X11/Xsession.d/90-gpdscreen
 rm -f /etc/X11/Xsession.d/99-gpdscreen-indicator
 rm -f /etc/X11/xinit/xinitrc.d/90-gpdscreen
 rm -f /usr/local/sbin/gpdscreen
+rm -f /etc/xdg/autostart/gpdscreen-indicator.desktop
+
 
 rm -f gpdscreen /lib/systemd/system-sleep/gpdscreen
 
