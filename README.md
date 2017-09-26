@@ -96,6 +96,8 @@ In some system it may happen that tray icon won't show at boot. Try to run in a 
     
 If it works add "gpdscreen-indicator" command to your system "Startup Application" utility to run it at boot.
 
+Check also that your Desktop Environment is XDG-Compliant: https://wiki.archlinux.org/index.php/Desktop_entries#Autostart
+
 # Problem reporting
 
 To report a problem clone the repo, run "problem-reporting.sh" script and attach the output to your github issue. This will help debugging.
