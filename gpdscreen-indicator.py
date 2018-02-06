@@ -35,7 +35,7 @@ def build_menu():
     # Rotate landscape
     item_landscape = gtk.ImageMenuItem('Rotate landscape')
     item_icon = gtk.Image()
-    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/tablet-with-blank-screen-white.png'))
+    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/tablet-with-blank-screen-white.svg'))
     item_landscape.set_image(item_icon)
     item_landscape.set_always_show_image(True)
     item_landscape.connect('activate', landscape)
@@ -44,7 +44,7 @@ def build_menu():
     # Rotate portrait
     item_portrait = gtk.ImageMenuItem('Rotate portrait')
     item_icon = gtk.Image()
-    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/cell-phone-with-blank-screen-white.png'))
+    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/cell-phone-with-blank-screen-white.svg'))
     item_portrait.set_image(item_icon)
     item_portrait.set_always_show_image(True)
     item_portrait.connect('activate', portrait)
@@ -53,7 +53,7 @@ def build_menu():
     # Rotate inverted portrait
     item_portrait = gtk.ImageMenuItem('Rotate inverse portrait')
     item_icon = gtk.Image()
-    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/cell-phone-with-blank-screen-white.png'))
+    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/cell-phone-with-blank-screen-white.svg'))
     item_portrait.set_image(item_icon)
     item_portrait.set_always_show_image(True)
     item_portrait.connect('activate', invertedportrait)
@@ -67,7 +67,7 @@ def build_menu():
     # Restore display size
     item_resettouch = gtk.ImageMenuItem('Reset touchscreen')
     item_icon = gtk.Image()
-    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/synchronization-arrows-white.png'))
+    item_icon.set_from_file(get_resource_path('/usr/local/share/gpdscreen-indicator/icons/synchronization-arrows-white.svg'))
     item_resettouch.set_image(item_icon)
     item_resettouch.set_always_show_image(True)
     item_resettouch.connect('activate', resettouch)

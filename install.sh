@@ -12,6 +12,7 @@ rm -f /etc/systemd/system/gpdtouch-wake.service
 rm -f /usr/local/sbin/gpdtouch
 rm -f /lib/systemd/system-sleep/gpdtouch
 rm -f /etc/X11/Xsession.d/99-gpdscreen-indicator
+rm -f /usr/local/share/gpdscreen-indicator/icons/*.png
 
 
 # Copy xsession scripts for utility launch
@@ -55,7 +56,6 @@ chmod +x /usr/local/sbin/gpdscreen-indicator
 
 # Install icons
 mkdir -p /usr/local/share/gpdscreen-indicator/icons
-cp icons/*.png /usr/local/share/gpdscreen-indicator/icons/
-cp icons/screen-rotation-button-white.svg /usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-white.svg
+cp icons/*.svg /usr/local/share/gpdscreen-indicator/icons/
 
 echo "REBOOT REQUIRED!"
