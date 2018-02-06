@@ -56,5 +56,6 @@ chmod +x /usr/local/sbin/gpdscreen-indicator
 # Install icons
 mkdir -p /usr/local/share/gpdscreen-indicator/icons
 cp icons/*.png /usr/local/share/gpdscreen-indicator/icons/
+cp icons/screen-rotation-button-white.svg /usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-white.svg
 
 echo "REBOOT REQUIRED!"

@@ -23,7 +23,7 @@ from gi.repository import AppIndicator3 as appindicator
 APPINDICATOR_ID = 'GPDScreenManager'
 
 def main():
-    indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('/usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-white.png'), appindicator.IndicatorCategory.SYSTEM_SERVICES)
+    indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('/usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-white.svg'), appindicator.IndicatorCategory.SYSTEM_SERVICES)
     indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
     menu = build_menu()
     indicator.set_menu(menu)
