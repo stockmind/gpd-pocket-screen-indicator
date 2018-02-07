@@ -20,10 +20,33 @@ gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk as gtk
 from gi.repository import AppIndicator3 as appindicator
+from os.path import expanduser
+import os.path
+import errno
+import sys
+
+home = expanduser("~")
 
 APPINDICATOR_ID = 'GPDScreenManager'
-configfile = "/etc/gpdscreen-indicator/config"
+maincolor = "white"
+menucolor = "white"
+configfile = "{}/.config/gpdscreen-indicator/config".format(home)
 Config = ConfigParser.ConfigParser()
+
+# Taken from https://stackoverflow.com/a/600612/119527
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc: # Python >2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else: raise
+
+def safe_open(path,option):
+    ''' Open "path", creating any parent directories as needed.
+    '''
+    mkdir_p(os.path.dirname(path))
+    return open(path, option)
 
 def getconfig(section):
     dict1 = {}
@@ -39,21 +62,24 @@ def getconfig(section):
     return dict1
 
 def setconfig(section,key,value):
+    try:
+        Config.add_section(section)
+    except:
+        pass
+    
     Config.set(section,key,value)
-    with open(configfile, 'wb') as file:
-        config.write(file)
+    with safe_open(configfile,'w+') as file:
+        Config.write(file)
 
 def main():
     # Read config
-    Config.read(configfile)
-    maincolor = getconfig("icons")['maincolor'] # white - black
-    menucolor = getconfig("icons")['menucolor'] # white - black
-
-    if maincolor = None:
-        maincolor = "white"
-
-    if menucolor = None:
-        menucolor = "white"
+    try:
+    	Config.read(configfile)
+    	maincolor = getconfig("icons")['maincolor'] # white - black
+    	menucolor = getconfig("icons")['menucolor'] # white - black
+    except:
+    	setconfig("icons","maincolor","white")
+    	setconfig("icons","menucolor","white")
 
     # Init indicator
     indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('/usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-{}.svg'.format(maincolor)), appindicator.IndicatorCategory.SYSTEM_SERVICES)
@@ -120,14 +146,14 @@ def build_menu():
     preferencesmenu = gtk.Menu()
     item_preferences = gtk.ImageMenuItem('Preferences')
     item_preferences.set_submenu(preferencesmenu)
-        # Theme White
-        item_preferences_themewhite = gtk.ImageMenuItem('White Theme')
-        item_preferences_themewhite.connect('activate', themewhite)
-        preferencesmenu.append(item_preferences_themewhite)
-        # Theme Black
-        item_preferences_themeblack = gtk.ImageMenuItem('Black Theme')
-        item_preferences_themeblack.connect('activate', themeblack)
-        preferencesmenu.append(item_preferences_themeblack)
+    # Theme White
+    item_preferences_themewhite = gtk.ImageMenuItem('White Theme')
+    item_preferences_themewhite.connect('activate', themewhite)
+    preferencesmenu.append(item_preferences_themewhite)
+    # Theme Black
+    item_preferences_themeblack = gtk.ImageMenuItem('Black Theme')
+    item_preferences_themeblack.connect('activate', themeblack)
+    preferencesmenu.append(item_preferences_themeblack)
     menu.append(item_preferences)
 
     # Quit
@@ -140,7 +166,6 @@ def build_menu():
     return menu
 
 def quit(*source):
-    Config.quit()
     gtk.main_quit()
 
 def landscape(*source):
@@ -167,15 +192,13 @@ def normaldpi(*source):
 def themewhite(*source):
     setconfig("icons","maincolor","white")
     setconfig("icons","menucolor","white")
-    call(["gpdscreen-indicator"])
-    Config.quit()
+    os.execv(__file__, sys.argv)
     gtk.main_quit()
 
 def themeblack(*source):
     setconfig("icons","maincolor","black")
     setconfig("icons","menucolor","black")
-    call(["gpdscreen-indicator"])
-    Config.quit()
+    os.execv(__file__, sys.argv)
     gtk.main_quit()
 
 
