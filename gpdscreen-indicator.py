@@ -80,6 +80,8 @@ def main():
     except:
     	setconfig("icons","maincolor","white")
     	setconfig("icons","menucolor","white")
+	maincolor = "white"
+    	menucolor = "white"
 
     # Init indicator
     indicator = appindicator.Indicator.new(APPINDICATOR_ID, get_resource_path('/usr/local/share/gpdscreen-indicator/icons/screen-rotation-button-{}.svg'.format(maincolor)), appindicator.IndicatorCategory.SYSTEM_SERVICES)
