@@ -28,6 +28,7 @@ It can work without that setup but is *recommended* to run into an environment c
  - python
  - python-gi
  - gksu
+ - xinput
  - gir1.2-appindicator3-0.1
 
 ### Arch:
@@ -35,6 +36,7 @@ It can work without that setup but is *recommended* to run into an environment c
 - gobject-introspection
 - python2
 - python2-gobject
+- xinput
 - gksu
 
 ## GNOME-Shell Users
