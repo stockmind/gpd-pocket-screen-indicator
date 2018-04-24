@@ -12,7 +12,7 @@
 import os
 import time
 import signal
-from subprocess import call
+import subprocess
 import ConfigParser
 
 import gi
@@ -171,25 +171,25 @@ def quit(*source):
     gtk.main_quit()
 
 def landscape(*source):
-    call(["gpdscreen", "landscape"])
+    subprocess.call(["gpdscreen", "landscape"])
 
 def portrait(*source):
-    call(["gpdscreen", "portrait"])
+    subprocess.call(["gpdscreen", "portrait"])
     
 def invertedportrait(*source):
-    call(["gpdscreen", "invertedportrait"])    
+    subprocess.call(["gpdscreen", "invertedportrait"])    
 
 def displaysize(*source):
-    call(["gpdscreen", "displaysize"])
+    subprocess.call(["gpdscreen", "displaysize"])
 
 def resettouch(*source):
-    call(("gksudo -- gpdscreen touchreset"), shell=True)
+    subprocess.Popen(["pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY gpdscreen touchreset"], shell=True)
 
 def highdpi(*source):
-    call(["gpdscreen", "highdpi"])
+    subprocess.call(["gpdscreen", "highdpi"])
 
 def normaldpi(*source):
-    call(["gpdscreen", "normaldpi"])
+    subprocess.call(["gpdscreen", "normaldpi"])
 
 def themewhite(*source):
     setconfig("icons","maincolor","white")
