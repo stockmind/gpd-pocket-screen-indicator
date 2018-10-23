@@ -33,6 +33,10 @@ chmod 0644 /etc/X11/xinit/xinitrc.d/90-gpdscreen
 cp daemons/gpdscreen.sh /usr/local/sbin/gpdscreen
 chmod +x /usr/local/sbin/gpdscreen
 
+# Add bash completion
+cp gpdscreen-completion.bash /etc/bash_completion.d/gpdscreen
+chmod +x /etc/bash_completion.d/gpdscreen
+
 # Add script relaunch on wake
 cp daemons/gpdscreen /lib/systemd/system-sleep/gpdscreen
 chmod +x /lib/systemd/system-sleep/gpdscreen
